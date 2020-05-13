@@ -60,6 +60,30 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## DockerFile Using
+ 
+创建指定到Dockerfile路径Imaeg
+docker build -t nestjssample:v1 .
+
+启动image
+run Docker Image 
+docker run -d --restart=always -p 8085:80 nestjssample:v1
+访问地址
+http://localhost:8085
+
+查询centos
+docker search centos:7
+
+拉取centos
+docker pull centos:7
+
+运行centos
+docker run -t -i centos:latest /bin/bash
+
+删除Docker
+docker rmi --force 6e4f1fe62ff1 备注6e4f1fe62ff1为image id
+
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).

@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { Query } from '@nestjs/common';
+import { userDto } from 'src/model/userDto';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -16,8 +16,22 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
+    const user: userDto = {
+      userId: '123466',
+      userName: 'daqing'
+    }
+    var map: { [key: string]: string; } = {
+      "userid": "abcdefg"
+    };
+    const httpReqeust = {
+      headers: map
+    };
     it('should return "Hello World!"', () => {
-      expect(appController.getHello('','','').toBe('Hello World!');
+      const result = appController.getHello('beijing', user, user.userId, httpReqeust).then(rst=>
+        {
+          console.log(result);
+          expect(rst).toEqual('Hello World!');
+        });  
     });
   });
 });
